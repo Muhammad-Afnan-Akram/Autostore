@@ -1,3 +1,5 @@
+using Autostore.Interfaces;
+using Autostore.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MyProject.Data;
 
@@ -10,7 +12,8 @@ builder.Services.AddDbContext<AutoStoreContext>(options =>
         ?? throw new InvalidOperationException("Connection string 'AutoStoreContext' not found."));
 });
 
-
+// Unit of work 
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

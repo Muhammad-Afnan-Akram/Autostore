@@ -1,14 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Autostore.Model
 {
-    public enum PaymentTerms
-    {
-        Net15,
-        Net30,
-        Net45,
-        Net60
-    }
+    
     public class Company
     {
 
@@ -20,14 +15,8 @@ namespace Autostore.Model
         [Required]
         public string Contact { get; set; }
 
-        [Required]
-        public PaymentTerms Terms { get; set; }
+        public string Address { get; set; }
 
-        [Required]
-        public DateTime DueDate { get; set; }
 
-     
-        public ICollection<Products> Products { get; set; }
-        public ICollection<BusinessTransactions> BusinessTransactions { get; set; }
     }
 }

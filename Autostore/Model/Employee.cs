@@ -9,10 +9,10 @@ namespace Autostore.Model
         Accountant
     }
 
-    public class Employees
+    public class Employee
     {
    
-        public int EmployeesId { get; set; }
+        public int EmployeeId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -20,6 +20,6 @@ namespace Autostore.Model
         [Required]
         public string Contactno { get; set; }
         public string Address { get; set; }
-        public ICollection<BusinessTransactions> BusinessTransactions { get; set; }
+        public ICollection<CustomerTransaction> CustomerTransaction { get; set; }
     }
 }

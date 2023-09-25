@@ -17,9 +17,7 @@ namespace Autostore.Model
         [Required]
         public string Contact { get; set; }
 
-        [Required]
-        [Column(TypeName = "decimal(18, 2)")]
-        public decimal DueAmount { get; set; }
-        public ICollection<BusinessTransactions> BusinessTransactions { get; set; }
+        
+        public ICollection<CustomerTransaction> CustomerTransaction { get; set; }
     }
 }
