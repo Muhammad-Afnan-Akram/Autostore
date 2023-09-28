@@ -31,7 +31,6 @@ namespace Autostore.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyId"));
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Contact")
@@ -101,7 +100,7 @@ namespace Autostore.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("BusinessTransactions");
+                    b.ToTable("CustomerTransactions");
                 });
 
             modelBuilder.Entity("Autostore.Model.Employee", b =>
@@ -129,7 +128,7 @@ namespace Autostore.Migrations
 
                     b.HasKey("EmployeeId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("Autostore.Model.Product", b =>
@@ -156,7 +155,7 @@ namespace Autostore.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("Autostore.Model.ProductTransaction", b =>
@@ -182,7 +181,7 @@ namespace Autostore.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductTransactions");
+                    b.ToTable("ProductTransaction");
                 });
 
             modelBuilder.Entity("Autostore.Model.Stock", b =>

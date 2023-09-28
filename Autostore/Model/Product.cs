@@ -6,7 +6,7 @@ namespace Autostore.Model
 {
     public class Product
     {
-
+        [Key]
         public int ProductId { get; set; }  
 
         [Required]
@@ -21,9 +21,9 @@ namespace Autostore.Model
         public decimal ProfitPercentage { get; set; }
 
 
-        //[JsonIgnore]
-        
+        [JsonIgnore]
         public ICollection<ProductTransaction> ProductTransactions { get; set; }
+        [JsonIgnore]
         public ICollection<Stock> Stock { get; set; }
 
 

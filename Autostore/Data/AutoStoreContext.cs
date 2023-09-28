@@ -9,12 +9,12 @@ namespace MyProject.Data
         {
         }
 
-        public DbSet<CustomerTransaction> BusinessTransactions { get; set; }
+        public DbSet<CustomerTransaction> CustomerTransaction { get; set; }
         public DbSet<Company> Company { get; set; }
         public DbSet<Customer> Customer { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductTransaction> ProductTransactions { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductTransaction> ProductTransaction { get; set; }
         public DbSet<Stock> Stock { get; set; }
         public DbSet<StockHistory> StockHistory { get; set; }
 

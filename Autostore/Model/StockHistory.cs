@@ -11,6 +11,7 @@ namespace Autostore.Model
     }
     public class StockHistory
     {
+        [Key]
         public int StockHistoryId { get; set; }
         public int StockId { get; set;}
         public ForAction Action { get; set; }

@@ -14,7 +14,7 @@ namespace Autostore.Model
 
     public class CustomerTransaction
     {
-    
+        [Key]
         public int CustomerTransactionId { get; set; }
 
         public int CustomerId { get; set; }

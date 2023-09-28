@@ -2,7 +2,7 @@
 
 namespace Autostore.Interfaces
 {
-    public interface ICompanyRepository:IGenericRepository<Company>
+    public interface ICompanyRepository: IGenericRepository<Company>
     {
     }
 }

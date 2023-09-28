@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Autostore.Migrations
 {
     /// <inheritdoc />
-    public partial class one : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,7 @@ namespace Autostore.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,7 +42,7 @@ namespace Autostore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "Employee",
                 columns: table => new
                 {
                     EmployeeId = table.Column<int>(type: "int", nullable: false)
@@ -54,11 +54,11 @@ namespace Autostore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.EmployeeId);
+                    table.PrimaryKey("PK_Employee", x => x.EmployeeId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Product",
                 columns: table => new
                 {
                     ProductId = table.Column<int>(type: "int", nullable: false)
@@ -70,11 +70,11 @@ namespace Autostore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.ProductId);
+                    table.PrimaryKey("PK_Product", x => x.ProductId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BusinessTransactions",
+                name: "CustomerTransactions",
                 columns: table => new
                 {
                     CustomerTransactionId = table.Column<int>(type: "int", nullable: false)
@@ -87,17 +87,17 @@ namespace Autostore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BusinessTransactions", x => x.CustomerTransactionId);
+                    table.PrimaryKey("PK_CustomerTransactions", x => x.CustomerTransactionId);
                     table.ForeignKey(
-                        name: "FK_BusinessTransactions_Customer_CustomerId",
+                        name: "FK_CustomerTransactions_Customer_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customer",
                         principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BusinessTransactions_Employees_EmployeeId",
+                        name: "FK_CustomerTransactions_Employee_EmployeeId",
                         column: x => x.EmployeeId,
-                        principalTable: "Employees",
+                        principalTable: "Employee",
                         principalColumn: "EmployeeId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -124,15 +124,15 @@ namespace Autostore.Migrations
                         principalColumn: "CompanyId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Stock_Products_ProductId",
+                        name: "FK_Stock_Product_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Products",
+                        principalTable: "Product",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductTransactions",
+                name: "ProductTransaction",
                 columns: table => new
                 {
                     ProductTransactionId = table.Column<int>(type: "int", nullable: false)
@@ -143,17 +143,17 @@ namespace Autostore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductTransactions", x => x.ProductTransactionId);
+                    table.PrimaryKey("PK_ProductTransaction", x => x.ProductTransactionId);
                     table.ForeignKey(
-                        name: "FK_ProductTransactions_BusinessTransactions_CustomerTransactionId",
+                        name: "FK_ProductTransaction_CustomerTransactions_CustomerTransactionId",
                         column: x => x.CustomerTransactionId,
-                        principalTable: "BusinessTransactions",
+                        principalTable: "CustomerTransactions",
                         principalColumn: "CustomerTransactionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductTransactions_Products_ProductId",
+                        name: "FK_ProductTransaction_Product_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Products",
+                        principalTable: "Product",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -182,23 +182,23 @@ namespace Autostore.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessTransactions_CustomerId",
-                table: "BusinessTransactions",
+                name: "IX_CustomerTransactions_CustomerId",
+                table: "CustomerTransactions",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessTransactions_EmployeeId",
-                table: "BusinessTransactions",
+                name: "IX_CustomerTransactions_EmployeeId",
+                table: "CustomerTransactions",
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductTransactions_CustomerTransactionId",
-                table: "ProductTransactions",
+                name: "IX_ProductTransaction_CustomerTransactionId",
+                table: "ProductTransaction",
                 column: "CustomerTransactionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductTransactions_ProductId",
-                table: "ProductTransactions",
+                name: "IX_ProductTransaction_ProductId",
+                table: "ProductTransaction",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
@@ -221,13 +221,13 @@ namespace Autostore.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProductTransactions");
+                name: "ProductTransaction");
 
             migrationBuilder.DropTable(
                 name: "StockHistory");
 
             migrationBuilder.DropTable(
-                name: "BusinessTransactions");
+                name: "CustomerTransactions");
 
             migrationBuilder.DropTable(
                 name: "Stock");
@@ -236,13 +236,13 @@ namespace Autostore.Migrations
                 name: "Customer");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "Employee");
 
             migrationBuilder.DropTable(
                 name: "Company");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Product");
         }
     }
 }

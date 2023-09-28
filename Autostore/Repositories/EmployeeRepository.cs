@@ -8,7 +8,7 @@ using Autostore.Model;
 using Autostore.Repositories;
 using MyProject.Data;
 
-namespace Autostore.Data.Repositories
+namespace Autostore.Repositories
 {
     public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
     {
@@ -17,7 +17,7 @@ namespace Autostore.Data.Repositories
         }
         public IQueryable<CustomerTransaction> GetTransactionsManagedByEmployee(string employeeName)
         {
-            var transactions = _dbContext.BusinessTransactions
+            var transactions = _dbContext.CustomerTransactions
                 .Where(transaction => transaction.Employee.Name == employeeName);
 
             return transactions;
