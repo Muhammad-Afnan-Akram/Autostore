@@ -24,6 +24,6 @@ namespace Autostore.Model
         public string? Address { get; set; }
 
         [JsonIgnore]
-        public ICollection<CustomerTransaction>? CustomerTransaction { get; set; }
+        public ICollection<CustomerTransactions>? CustomerTransactions { get; set; }
     }
 }

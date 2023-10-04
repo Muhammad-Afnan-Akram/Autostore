@@ -15,15 +15,6 @@ namespace Autostore.Repositories
         public EmployeeRepository(AutoStoreContext dbContext) : base(dbContext)
         {
         }
-        public IQueryable<CustomerTransaction> GetTransactionsManagedByEmployee(string employeeName)
-        {
-            var transactions = _dbContext.CustomerTransactions
-                .Where(transaction => transaction.Employee.Name == employeeName);
-
-            return transactions;
-        }
-
-
 
     }
 

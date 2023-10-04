@@ -9,7 +9,7 @@ namespace MyProject.Data
         {
         }
 
-        public DbSet<CustomerTransaction> CustomerTransaction { get; set; }
+        public DbSet<CustomerTransactions> CustomerTransactions { get; set; }
         public DbSet<Company> Company { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Employee> Employee { get; set; }

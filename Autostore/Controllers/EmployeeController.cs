@@ -71,8 +71,6 @@ namespace Autostore.Controllers
             }
             return Ok(employee);
         }
-
-
         [HttpPut("{employeeId}")]
         public IActionResult UpdateEmployee(int employeeId, [FromBody] Employee updatedEmployee)
         {

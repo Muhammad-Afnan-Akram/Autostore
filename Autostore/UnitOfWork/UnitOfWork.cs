@@ -11,13 +11,13 @@ namespace Autostore.UnitOfWork
 
         private readonly AutoStoreContext _dbContext;
 
-        public UnitOfWork(AutoStoreContext dbContext, IEmployeeRepository _EmployeeRepo, ICompanyRepository _CompanyRepo, ICustomerRepository _CustomerRepo, ICustomerTransactionRepository _CustomerTransactionRepo, IProductTransactionRepository _ProductTransactionRepo, IProductRepository _ProductRepo, IStockRepository _StockRepo, IStockHistoryRepository _StockHistoryRepo)
+        public UnitOfWork(AutoStoreContext dbContext, IEmployeeRepository _EmployeeRepo, ICompanyRepository _CompanyRepo, ICustomerRepository _CustomerRepo, ICustomerTransactionsRepository _CustomerTransactionsRepo, IProductTransactionRepository _ProductTransactionRepo, IProductRepository _ProductRepo, IStockRepository _StockRepo, IStockHistoryRepository _StockHistoryRepo)
         {
             _dbContext = dbContext;
             EmployeeRepo = _EmployeeRepo;
             CompanyRepo = _CompanyRepo;
             CustomerRepo = _CustomerRepo;
-            CustomerTransactionRepo = _CustomerTransactionRepo;
+            CustomerTransactionsRepo = _CustomerTransactionsRepo;
             ProductTransactionRepo = _ProductTransactionRepo;
             StockHistoryRepo = _StockHistoryRepo;
             StockRepo = _StockRepo;
@@ -29,7 +29,7 @@ namespace Autostore.UnitOfWork
         public IEmployeeRepository EmployeeRepo { get; }
         public ICompanyRepository CompanyRepo { get; }
         public ICustomerRepository CustomerRepo { get; }
-        public ICustomerTransactionRepository CustomerTransactionRepo { get; }
+        public ICustomerTransactionsRepository CustomerTransactionsRepo { get; }
         public IProductTransactionRepository ProductTransactionRepo { get; }
         public IProductRepository ProductRepo { get; }
         public IStockRepository StockRepo { get; }

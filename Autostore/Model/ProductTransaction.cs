@@ -10,7 +10,7 @@ namespace Autostore.Model
         public int ProductTransactionId { get; set; }
 
         public int CustomerTransactionId { get; set; }
-        public CustomerTransaction? CustomerTransaction { get; set; }
+        public CustomerTransactions? CustomerTransactions { get; set; }
 
         public int ProductId { get; set; }
         public Product? Product { get; set; }

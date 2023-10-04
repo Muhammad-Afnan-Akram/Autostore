@@ -1,0 +1,116 @@
+INSERT INTO Product (Name, Description, PurchaseCost, ProfitPercentage)
+VALUES
+    ('Product 1', 'Description for Product 1', 50.00, 20.00),
+    ('Product 2', 'Description for Product 2', 60.00, 25.00),
+    ('Product 3', 'Description for Product 3', 70.00, 18.00),
+    ('Product 4', 'Description for Product 4', 45.00, 22.00),
+    ('Product 5', 'Description for Product 5', 55.00, 30.00),
+    ('Product 6', 'Description for Product 6', 65.00, 15.00),
+    ('Product 7', 'Description for Product 7', 40.00, 28.00),
+    ('Product 8', 'Description for Product 8', 75.00, 12.00),
+    ('Product 9', 'Description for Product 9', 48.00, 20.00),
+    ('Product 10', 'Description for Product 10', 58.00, 25.00);
+
+
+
+
+INSERT INTO Employee (Name, Role, Contactno, Address)
+VALUES
+    ('Ali Khan', 0, '+92 300 1234567', '123 Main Street, Lahore'),
+    ('Ahmed Raza', 1, '+92 321 9876543', '456 Park Road, Karachi'),
+    ('Muhammad Iqbal', 2, '+92 333 5557777', '789 Hill Avenue, Islamabad'),
+    ('Bilal Ahmed', 0, '+92 345 6789012', '101 Garden Street, Rawalpindi'),
+    ('Hassan Ali', 1, '+92 302 1112233', '234 Canal Road, Faisalabad'),
+    ('Abdul Malik', 0, '+92 333 9998887', '567 College Road, Multan'),
+    ('Saeed Khan', 1, '+92 321 4445556', '890 Stadium Road, Peshawar'),
+    ('Nadeem Akram', 2, '+92 312 7776665', '345 Lake View, Quetta'),
+    ('Asif Iqbal', 0, '+92 331 8899776', '678 Garden Town, Sialkot'),
+    ('Tariq Mehmood', 1, '+92 320 3334455', '123 Park Lane, Hyderabad');
+
+
+
+INSERT INTO Customer (Name, Address, Contact)
+VALUES
+    ('Customer 1', '123 Main Street, Lahore', '+92 300 1234567'),
+    ('Customer 2', '456 Park Road, Karachi', '+92 321 9876543'),
+    ('Customer 3', '789 Hill Avenue, Islamabad', '+92 333 5557777'),
+    ('Customer 4', '101 Garden Street, Rawalpindi', '+92 345 6789012'),
+    ('Customer 5', '234 Canal Road, Faisalabad', '+92 302 1112233'),
+    ('Customer 6', '567 College Road, Multan', '+92 333 9998887'),
+    ('Customer 7', '890 Stadium Road, Peshawar', '+92 321 4445556'),
+    ('Customer 8', '345 Lake View, Quetta', '+92 312 7776665'),
+    ('Customer 9', '678 Garden Town, Sialkot', '+92 331 8899776'),
+    ('Customer 10', '123 Park Lane, Hyderabad', '+92 320 3334455');
+
+
+-- Insert 20 sample records into the CustomerTransaction table with manually specified data
+INSERT INTO CustomerTransaction (CustomerId, EmployeeId, TransactionDate, AmountPaid, PaymentStatus)
+VALUES
+    (1, 1, '2023-03-05', 100.00, 1),
+    (2, 2, '2023-03-12', 200.00, 1),
+    (3, 3, '2023-03-20', 150.00, 1),
+    (4, 1, '2023-03-28', 120.00, 1),
+    (5, 2, '2023-04-03', 180.00, 1),
+    (6, 3, '2023-04-10', 90.00, 1),
+    (7, 1, '2023-04-17', 250.00, 1),
+    (8, 2, '2023-04-25', 210.00, 1),
+    (9, 3, '2023-05-02', 175.00, 1),
+    (10, 1, '2023-05-09', 130.00, 1),
+    (1, 2, '2023-05-16', 110.00, 1),
+    (2, 3, '2023-05-24', 190.00, 1),
+    (3, 1, '2023-06-01', 160.00, 1),
+    (4, 2, '2023-06-08', 130.00, 1),
+    (5, 3, '2023-06-15', 170.00, 1),
+    (6, 1, '2023-06-23', 100.00, 1),
+    (7, 2, '2023-06-30', 260.00, 1),
+    (8, 3, '2023-07-07', 220.00, 1),
+    (9, 1, '2023-07-14', 185.00, 1),
+    (10, 2, '2023-07-21', 140.00, 1);
+
+
+-- Insert 10 sample records into the ProductTransaction table
+INSERT INTO ProductTransaction (CustomerTransactionId, ProductId, Quantity)
+VALUES
+    (1, 1, 5),
+    (2, 2, 3),
+    (3, 3, 2),
+    (4, 4, 4),
+    (5, 5, 6),
+    (6, 6, 1),
+    (7, 7, 8),
+    (8, 8, 2),
+    (9, 9, 3),
+    (10, 10, 5);
+
+
+
+-- Insert 10 sample records into the Stock table
+INSERT INTO Stock (ProductId, Quantity, PurchaseDate, AmountPaid, CompanyId)
+VALUES
+    (1, 50, '2023-03-05', 500.00, 1),
+    (2, 40, '2023-03-12', 600.00, 2),
+    (3, 60, '2023-03-20', 750.00, 1),
+    (4, 30, '2023-03-28', 400.00, 3),
+    (5, 70, '2023-04-03', 850.00, 2),
+    (6, 45, '2023-04-10', 550.00, 3),
+    (7, 55, '2023-04-17', 700.00, 1),
+    (8, 65, '2023-04-25', 800.00, 2),
+    (9, 25, '2023-05-02', 350.00, 3),
+    (10, 35, '2023-05-09', 450.00, 1);
+
+
+
+-- Insert 10 sample records into the StockHistory table
+INSERT INTO StockHistory (StockId, Action, QuantityChanged, DateChanged, Notes)
+VALUES
+    (1, 0, 10, '2023-03-07', 'Purchase of 10 units'),
+    (2, 0, 5, '2023-03-15', 'Purchase of 5 units'),
+    (3, 0, 8, '2023-03-25', 'Purchase of 8 units'),
+    (4, 1, -3, '2023-03-30', 'Sale of 3 units'),
+    (5, 0, 12, '2023-04-05', 'Purchase of 12 units'),
+    (6, 1, -2, '2023-04-12', 'Sale of 2 units'),
+    (7, 0, 15, '2023-04-20', 'Purchase of 15 units'),
+    (8, 0, 7, '2023-04-28', 'Purchase of 7 units'),
+    (9, 1, -4, '2023-05-05', 'Sale of 4 units'),
+    (10, 0, 20, '2023-05-10', 'Purchase of 20 units');
+

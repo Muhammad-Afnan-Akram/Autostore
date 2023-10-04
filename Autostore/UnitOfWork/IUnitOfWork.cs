@@ -8,7 +8,7 @@ namespace Autostore.UnitOfWork
     {
         ICompanyRepository CompanyRepo { get; }
         ICustomerRepository CustomerRepo { get; }
-        ICustomerTransactionRepository CustomerTransactionRepo { get; }
+        ICustomerTransactionsRepository CustomerTransactionsRepo { get; }
         IEmployeeRepository EmployeeRepo { get; }
         IProductRepository ProductRepo { get; }
         IProductTransactionRepository ProductTransactionRepo { get; }

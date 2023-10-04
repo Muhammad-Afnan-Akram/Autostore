@@ -12,7 +12,7 @@ namespace Autostore.Model
         Unpaid
     }
 
-    public class CustomerTransaction
+    public class CustomerTransactions
     {
         [Key]
         public int CustomerTransactionId { get; set; }

@@ -15,7 +15,7 @@ builder.Services.AddDbContext<AutoStoreContext>(options =>
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<ICustomerTransactionRepository, CustomerTransactionRepository>();
+builder.Services.AddScoped<ICustomerTransactionsRepository, CustomerTransactionsRepository>();
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped<IProductTransactionRepository, ProductTransactionRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();

@@ -7,24 +7,24 @@ namespace Autostore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerTransactionController : ControllerBase
+    public class CustomerTransactionsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public CustomerTransactionController(IUnitOfWork CustomerTransactionService)
+        public CustomerTransactionsController(IUnitOfWork CustomerTransactionsService)
         {
-            _unitOfWork = CustomerTransactionService;
+            _unitOfWork = CustomerTransactionsService;
         }
 
 
         [HttpPost]
-        public IActionResult AddCustomerTransaction([FromBody] CustomerTransaction CustomerTransaction)
+        public IActionResult AddCustomerTransaction([FromBody] CustomerTransactions CustomerTransaction)
         {
             if (CustomerTransaction == null)
             {
                 return BadRequest();
             }
-            _unitOfWork.CustomerTransactionRepo.Add(CustomerTransaction);
+            _unitOfWork.CustomerTransactionsRepo.Add(CustomerTransaction);
             _unitOfWork.Save();
             return Ok(CustomerTransaction);
         }
@@ -38,13 +38,13 @@ namespace Autostore.Controllers
                 return BadRequest("Invalid CustomerTransaction ID.");
             }
 
-            var delCustomerTransaction = _unitOfWork.CustomerTransactionRepo.GetById(CustomerTransactionId);
+            var delCustomerTransaction = _unitOfWork.CustomerTransactionsRepo.GetById(CustomerTransactionId);
             if (delCustomerTransaction == null)
             {
                 return NotFound("CustomerTransaction not found.");
             }
 
-            _unitOfWork.CustomerTransactionRepo.Delete(delCustomerTransaction);
+            _unitOfWork.CustomerTransactionsRepo.Delete(delCustomerTransaction);
             _unitOfWork.Save();
 
             return Ok("CustomerTransaction deleted successfully.");
@@ -56,7 +56,7 @@ namespace Autostore.Controllers
         [HttpGet]
         public IActionResult GetAllCustomerTransactions()
         {
-            var CustomerTransactions = _unitOfWork.CustomerTransactionRepo.GetAll();
+            var CustomerTransactions = _unitOfWork.CustomerTransactionsRepo.GetAll();
             return Ok(CustomerTransactions);
         }
 
@@ -65,7 +65,7 @@ namespace Autostore.Controllers
         [HttpGet("{id}")]
         public IActionResult GetCustomerTransactionById(int id)
         {
-            var CustomerTransaction = _unitOfWork.CustomerTransactionRepo.GetById(id);
+            var CustomerTransaction = _unitOfWork.CustomerTransactionsRepo.GetById(id);
             if (CustomerTransaction == null)
             {
                 return NotFound();
@@ -75,14 +75,14 @@ namespace Autostore.Controllers
 
 
         [HttpPut("{CustomerTransactionId}")]
-        public IActionResult UpdateCustomerTransaction(int CustomerTransactionId, [FromBody] CustomerTransaction updatedCustomerTransaction)
+        public IActionResult UpdateCustomerTransaction(int CustomerTransactionId, [FromBody] CustomerTransactions updatedCustomerTransaction)
         {
             if (CustomerTransactionId <= 0)
             {
                 return BadRequest("Invalid CustomerTransaction ID.");
             }
 
-            var existingCustomerTransaction = _unitOfWork.CustomerTransactionRepo.GetById(CustomerTransactionId);
+            var existingCustomerTransaction = _unitOfWork.CustomerTransactionsRepo.GetById(CustomerTransactionId);
             if (existingCustomerTransaction == null)
             {
                 return NotFound("CustomerTransaction not found.");
@@ -99,7 +99,7 @@ namespace Autostore.Controllers
             existingCustomerTransaction.AmountPaid = updatedCustomerTransaction.AmountPaid;
             existingCustomerTransaction.PaymentStatus = updatedCustomerTransaction.PaymentStatus;
 
-            _unitOfWork.CustomerTransactionRepo.Update(existingCustomerTransaction);
+            _unitOfWork.CustomerTransactionsRepo.Update(existingCustomerTransaction);
             _unitOfWork.Save();
 
             return Ok(existingCustomerTransaction);
