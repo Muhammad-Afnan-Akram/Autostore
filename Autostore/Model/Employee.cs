@@ -18,7 +18,7 @@ namespace Autostore.Model
         [Required]
         public string Name { get; set; }
         [Required]
-        public EmployeeRole Role { get; set; }
+        public string Role { get; set; }
         [Required]
         public string? Contactno { get; set; }
         public string? Address { get; set; }

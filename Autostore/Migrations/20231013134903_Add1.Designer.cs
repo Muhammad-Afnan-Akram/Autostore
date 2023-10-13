@@ -12,8 +12,8 @@ using MyProject.Data;
 namespace Autostore.Migrations
 {
     [DbContext(typeof(AutoStoreContext))]
-    [Migration("20231012102227_init")]
-    partial class init
+    [Migration("20231013134903_Add1")]
+    partial class Add1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,8 +125,9 @@ namespace Autostore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeeId");
 
