@@ -1,12 +1,14 @@
 ﻿using Autostore.Model;
 using Autostore.Repositories;
 using Autostore.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autostore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CompanyController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

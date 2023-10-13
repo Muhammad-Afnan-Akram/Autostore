@@ -1,9 +1,10 @@
 ﻿using Autostore.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MyProject.Data
 {
-    public class AutoStoreContext : DbContext
+    public class AutoStoreContext : IdentityDbContext
     {
         public AutoStoreContext(DbContextOptions<AutoStoreContext> options) : base(options)
         {

@@ -1,6 +1,7 @@
 ﻿using Autostore.Model;
 using Autostore.Repositories;
 using Autostore.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autostore.Controllers
@@ -54,6 +55,7 @@ namespace Autostore.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult GetAllProducts()
         {
             var Products = _unitOfWork.ProductRepo.GetAll();
