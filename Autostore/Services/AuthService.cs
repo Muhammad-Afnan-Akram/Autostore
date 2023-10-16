@@ -32,8 +32,8 @@ namespace Autostore.Services
 
             var result = await _userManager.CreateAsync(identityUser, user.Password);
 
-           /* if (result.Succeeded)
-            {*/
+            if (result.Succeeded)
+            {
                if (user.Role == "Cashier")
                 {
                     await _userManager.AddToRoleAsync(identityUser, "Cashier");
@@ -46,7 +46,7 @@ namespace Autostore.Services
                 {
                     await _userManager.AddToRoleAsync(identityUser, "Accountant");
                 }
-            //}
+            }
 
             return result.Succeeded;
         }
