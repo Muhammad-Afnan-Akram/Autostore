@@ -44,7 +44,7 @@ VALUES
 
 
 -- Insert 20 sample records into the CustomerTransaction table with manually specified data
-INSERT INTO CustomerTransaction (CustomerId, EmployeeId, TransactionDate, AmountPaid, PaymentStatus)
+INSERT INTO CustomerTransactions (CustomerId, EmployeeId, TransactionDate, AmountPaid, PaymentStatus)
 VALUES
     (1, 1, '2023-03-05', 100.00, 1),
     (2, 2, '2023-03-12', 200.00, 1),
@@ -114,3 +114,15 @@ VALUES
     (9, 1, -4, '2023-05-05', 'Sale of 4 units'),
     (10, 0, 20, '2023-05-10', 'Purchase of 20 units');
 
+    INSERT INTO [AutostoreDatabase].[dbo].[Company] ([Name], [Contact], [Address])
+VALUES
+  ('Company 1', 'John Doe', '123 Main St'),
+  ('Company 2', 'Jane Smith', '456 Elm St'),
+  ('Company 3', 'Bob Johnson', '789 Oak St'),
+  ('Company 4', 'Alice Brown', '101 Pine St'),
+  ('Company 5', 'David Wilson', '202 Maple St'),
+  ('Company 6', 'Eva Davis', '303 Cedar St'),
+  ('Company 7', 'Mike Miller', '404 Birch St'),
+  ('Company 8', 'Laura Taylor', '505 Spruce St'),
+  ('Company 9', 'Tom Anderson', '606 Redwood St'),
+  ('Company 10', 'Sara Garcia', '707 Sequoia St');
