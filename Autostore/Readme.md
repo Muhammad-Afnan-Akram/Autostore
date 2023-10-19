@@ -44,23 +44,7 @@ To get started with Autostore, follow these steps:
 
 
 4. **Access the Web API**:
-The API will be available at `http://localhost:5000` by default. You can use tools like Postman or cURL to interact with the endpoints.
-
-## Documentation
-
-For detailed documentation on how to use and extend Autostore, please refer to the [wiki](https://github.com/yourusername/autostore/wiki).
-
-## Contributing
-
-We welcome contributions! If you'd like to contribute to Autostore, please follow our [Contribution Guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-For any inquiries or support, please contact [Your Name](mailto:your.email@example.com).
+The API will be available at `http://localhost:7262` by default. You can use tools like Postman or cURL to interact with the endpoints.
 
 Happy coding!
 
